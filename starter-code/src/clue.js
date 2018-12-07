@@ -176,3 +176,24 @@ var weaponsArray = [
   { name: "trophy", weight: 25 },
   { name: "pistol", weight: 20 }
 ];
+
+function randomSelector(array) {
+  if (array.length === 0) {
+    return;
+  }
+  return array[Math.floor(Math.random() * (array.length))];
+}
+
+function pickMistery() {
+  let mystery = [];
+  mystery[0] = randomSelector(charactersArray);
+  mystery[1] = randomSelector(weaponsArray);
+  mystery[2] = randomSelector(roomsArray);
+  return mystery;
+}
+
+let misteryEnvelope = pickMistery();
+
+function revealMistery(misteryEnvelope) {
+  return `${misteryEnvelope[0].first_name} ${misteryEnvelope[0].last_name} killed Mr.Boddy using the ${misteryEnvelope[1].name} in the ${misteryEnvelope[2].name}!!!!`
+}
